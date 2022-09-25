@@ -5,9 +5,8 @@ function setAction(a) {
             action == "multiply" ? "x" :
                 action == "remainder" ? "%" :
                     action == "divide" ? "/" : "";
-    document.getElementById("action").innerHTML = symbol;
 
-    firstValue = document.getElementById("output").innerHTML;
+    document.getElementById("action").innerHTML = symbol;
     firstValue = document.getElementById("output").innerHTML;
     ignoreNextInput = true;
 }
@@ -17,26 +16,19 @@ function equals() {
     document.getElementById("action").innerHTML = "";
     switch (action) {
         case "add":
-            console.log( "Adding " + firstValue + " and " + secondValue );
             display(parseFloat(firstValue) + parseFloat(secondValue))
-            //document.getElementById("output").innerHTML = parseFloat(firstValue) + parseFloat(secondValue);
             break;
         case "subtract":
-            console.log( "Subtracting " + firstValue + " and " + secondValue );
-            document.getElementById("output").innerHTML = parseFloat(firstValue) - parseFloat(secondValue);
+            display(parseFloat(firstValue) - parseFloat(secondValue));
             break;
         case "multiply":
-            console.log( `Multiplying ${parseFloat(firstValue)} and ${parseFloat(secondValue)}` );
-            // document.getElementById("output").innerHTML = parseFloat(firstValue) * parseFloat(secondValue);
             display(parseFloat(firstValue) * parseFloat(secondValue));
             break;
         case "divide":
-            console.log( "Dividing " + firstValue + " and " + secondValue );
-            document.getElementById("output").innerHTML = parseFloat(firstValue) / parseFloat(secondValue);
+            display(parseFloat(firstValue) / parseFloat(secondValue));
             break;
         case "remainder":
-            console.log( "Remainder of " + firstValue + " and " + secondValue );
-            document.getElementById("output").innerHTML = parseFloat(firstValue) % parseFloat(secondValue);
+            display(parseFloat(firstValue) % parseFloat(secondValue));
             break;
     }
     ignoreNextInput = true;
@@ -79,20 +71,19 @@ var firstValue;
 var secondValue;
 var action;
 var ignoreNextInput;
-var negative = false;
 let _output = document.getElementById("output");
 
-document.getElementById("one").addEventListener     ("click", () => inputValue(1));
-document.getElementById("two").addEventListener     ("click", () => inputValue(2));
-document.getElementById("three").addEventListener   ("click", () => inputValue(3));
-document.getElementById("four").addEventListener    ("click", () => inputValue(4));
-document.getElementById("five").addEventListener    ("click", () => inputValue(5));
-document.getElementById("six").addEventListener     ("click", () => inputValue(6));
-document.getElementById("seven").addEventListener   ("click", () => inputValue(7));
-document.getElementById("eight").addEventListener   ("click", () => inputValue(8));
-document.getElementById("nine").addEventListener    ("click", () => inputValue(9));
-document.getElementById("zero").addEventListener    ("click", () => inputValue(0));
-document.getElementById("period").addEventListener    ("click", () => inputValue("."));
+document.getElementById("one").addEventListener         ("click", () => inputValue(1));
+document.getElementById("two").addEventListener         ("click", () => inputValue(2));
+document.getElementById("three").addEventListener       ("click", () => inputValue(3));
+document.getElementById("four").addEventListener        ("click", () => inputValue(4));
+document.getElementById("five").addEventListener        ("click", () => inputValue(5));
+document.getElementById("six").addEventListener         ("click", () => inputValue(6));
+document.getElementById("seven").addEventListener       ("click", () => inputValue(7));
+document.getElementById("eight").addEventListener       ("click", () => inputValue(8));
+document.getElementById("nine").addEventListener        ("click", () => inputValue(9));
+document.getElementById("zero").addEventListener        ("click", () => inputValue(0));
+document.getElementById("period").addEventListener      ("click", () => inputValue("."));
 document.getElementById("Sign").addEventListener        ("click", () => _output.innerHTML = _output.innerHTML * -1);
 
 document.getElementById("Add").addEventListener         ("click", () => setAction("add"));
@@ -101,9 +92,34 @@ document.getElementById("Multiply").addEventListener    ("click", () => setActio
 document.getElementById("Divide").addEventListener      ("click", () => setAction("divide"));
 document.getElementById("Remainder").addEventListener   ("click", () => setAction("remainder"));
 
-
-document.getElementById("Back").addEventListener       ("click", () => back());
-document.getElementById("Clear").addEventListener       ("click", () => clear());
 document.getElementById("Equals").addEventListener      ("click", () => equals());
+document.getElementById("Back").addEventListener        ("click", () => back());
+document.getElementById("Clear").addEventListener       ("click", () => clear());
 
+const keys = {
+    0: "zero",
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six",
+    7: "seven",
+    8: "eight",
+    9: "nine",
+    "/": "Divide",
+    "*": "Multiply",
+    "-": "Subtract",
+    "+": "Add",
+    "%": "Remainder",
+    "Enter": "Equals",
+    "Backspace": "Back",
+    "Delete": "Clear",
+    '.': "period"
+}
 
+document.addEventListener("keydown", (e) => {
+    try {
+        document.getElementById(keys[e.key]).click();
+    } catch{}
+}, false)
