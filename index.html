@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <div class="calculator">
@@ -13,36 +17,40 @@
             <p id="action"></p>
             <h3 id="output">0</h2>
         </div>
-        <div class="row1">
-            <button id="Clear" class="tanShadow">C</button>
-            <button id="Remainder" class="tanShadow">%</button>
-            <button id="Sign" class="tanShadow">+/-</button>
-            <button id="Divide" class="tanShadow">/</button>
-        </div>
-        <div class="row2">
-            <button id="seven">7</button>
-            <button id="eight">8</button>
-            <button id="nine">9</button>
-            <button id="Multiply" class="tanShadow">x</button>
-        </div>
-        <div class="row3">
-            <button id="four">4</button>
-            <button id="five">5</button>
-            <button id="six">6</button>
-            <button id="Subtract" class="tanShadow">-</button>
-        </div>
-        <div class="row4">
-            <button id="one">1</button>
-            <button id="two">2</button>
-            <button id="three">3</button>
-            <button id="Add" class="tanShadow">+</button>
-        </div>
-        <div class="row5">
-            <button id="period">.</button>
-            <button id="zero">0</button>
-            <button id="Back"><</button>
-            <button id="Equals" class="tanShadow">=</button>
-        </div>
+        <button id="Clear" class="side-buttons">
+            <i class="fa-solid fa-c"></i>
+        </button>
+        <button id="Remainder" class="side-buttons">
+            <i class="fa-solid fa-percent"></i>
+        </button>
+        <button id="Sign" class="side-buttons">
+            <i class="fa-solid fa-plus-minus"></i>
+        </button>
+        <button id="Divide" class="side-buttons">
+            <i class="fa-solid fa-divide"></i>
+        </button>
+        <button id="seven">7</button>
+        <button id="eight">8</button>
+        <button id="nine">9</button>
+        <button id="Multiply" class="side-buttons">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <button id="four">4</button>
+        <button id="five">5</button>
+        <button id="six">6</button>
+        <button id="Subtract" class="side-buttons"><i class="fa-solid fa-minus"></i></button>
+        <button id="one">1</button>
+        <button id="two">2</button>
+        <button id="three">3</button>
+        <button id="Add" class="side-buttons">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <button id="period">.</button>
+        <button id="zero">0</button>
+        <button id="Back"><i class="fa-solid fa-delete-left"></i></button>
+        <button id="Equals" class="side-buttons">
+            <i class="fa-solid fa-equals"></i>
+        </button>
     </div>
 
     

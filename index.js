@@ -73,6 +73,22 @@ var action;
 var ignoreNextInput;
 let _output = document.getElementById("output");
 
+setInterval(() => {
+    console.log(`firstvalue: ${firstValue} secondvalue: ${secondValue}`);
+    
+}, 1000);
+
+const buttons = document.querySelectorAll("button")
+for (let button of buttons) {
+    button.setAttribute('tabindex', '-1');
+    button.addEventListener("click", () => { 
+        button.classList.add('pressed');
+        setTimeout(() => {
+            button.classList.remove("pressed");
+        }, 100)
+    });
+}
+
 document.getElementById("one").addEventListener         ("click", () => inputValue(1));
 document.getElementById("two").addEventListener         ("click", () => inputValue(2));
 document.getElementById("three").addEventListener       ("click", () => inputValue(3));
@@ -115,11 +131,13 @@ const keys = {
     "Enter": "Equals",
     "Backspace": "Back",
     "Delete": "Clear",
-    '.': "period"
+    ".": "period"
 }
 
 document.addEventListener("keydown", (e) => {
+    e.preventDefault();
     try {
-        document.getElementById(keys[e.key]).click();
-    } catch{}
+        const button = document.getElementById(keys[e.key]);
+        button.click();
+    } catch(e){}
 }, false)
