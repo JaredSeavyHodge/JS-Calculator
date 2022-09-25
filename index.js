@@ -44,7 +44,6 @@ function inputValue(next) {
     } else {
         value = prev.toString();
     }
-    console.log(value.length);
     display (value);
 }
 
@@ -72,11 +71,6 @@ var secondValue;
 var action;
 var ignoreNextInput;
 let _output = document.getElementById("output");
-
-setInterval(() => {
-    console.log(`firstvalue: ${firstValue} secondvalue: ${secondValue}`);
-    
-}, 1000);
 
 const buttons = document.querySelectorAll("button")
 for (let button of buttons) {
